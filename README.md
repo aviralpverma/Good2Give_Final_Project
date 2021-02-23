@@ -7,4 +7,4 @@ Features :
 * image uploading and downloading
 * fluid and interactive UI using Bootstrap
 
-Technologies used : Angular, Java Spring Boot, Hibernate, HTML/CSS, Bootrap.
+Technologies used : Angular, Java Spring Boot, Hibernate, HTML/CSS, Bootstrap.
