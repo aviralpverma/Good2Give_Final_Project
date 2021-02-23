@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <img [src]="imageURL" alt="..." class="responsive">
+            </div>
+            <div class="col-sm-12 org">
+                <h3 style="text-align: center;">{{org.fullname}}</h3>
+                <h4 style="text-align: center;">{{org.address}}</h4>
+                <h4 style="text-align: center; font-style: italic; color: darkgray;">Distance : {{org.distance}} km</h4>
+                <br>
+                <h4 style="text-align: center;">
+                    <button type="button" (click)=orgDetails(org.id.toString()) class="btn btn-success btn-lg btn_detail">Details</button>
+                </h4>
+            </div>
+        </div>
+    </div>
+</div>

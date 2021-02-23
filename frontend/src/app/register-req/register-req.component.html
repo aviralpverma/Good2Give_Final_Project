@@ -1,0 +1,87 @@
+<br>
+<div class="container">
+    <div class="card">
+        <h2 style="text-align: center;">
+            Enter Requirements for Your Organisation
+        </h2>
+        <hr/>
+        <div class="card-body">
+            <form novalidate #reqform="ngForm" (ngSubmit)=onSubmit(requirement)>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Today's Date:</label>
+                            <input type="text" name="name" class="form-control" readonly [value]="todDate">
+                            <!-- <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                        Name is required
+                    </div> -->
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom: 50px;padding-top: 50px;">
+                    <label>Type Of Requirement:-</label>
+                </div>
+                <div class="row" style="padding-bottom: 50px;">
+                    <div class="col-md-6">
+                        <div class="form-check" style="padding-bottom: 50px;">
+                            <label class="form-check-label" for="items">
+                        Items
+                    </label>
+                            <input type="checkbox" #it id="items" (click)="checkItems(it)" class="form-control">
+
+                        </div>
+                        <div *ngIf="items==true">
+                            <div class="form-group">
+                                <label>Choose Type Of Item:</label>
+                                <select name="categoryId" class="form-control" [(ngModel)]="requirement.categoryId.id">
+                            <option value="1">Cloths</option>
+                            <option value="2">Footwear</option>
+                            <option value="3">Books</option>
+                            <option value="4">Food</option>
+                        </select>
+                            </div>
+                        </div>
+
+                        <div *ngIf="items==true">
+                            <label>Maximum Quantity required:</label>
+                            <input name="itemMaxCount" class="form-control" [(ngModel)]="requirement.itemMaxCount">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-check col" style="padding-bottom: 50px;">
+                            <label class="form-check-label" for="money">
+                        Money
+                    </label>
+                            <input type="checkbox" #mo id="money" (click)="checkMoney(mo)" class="form-control">
+
+                        </div>
+                        <div *ngIf="money==true" class="col">
+                            <label>Maximum Money required:</label>
+                            <input name="donationMaxAmount" class="form-control" [(ngModel)]="requirement.donationMaxAmount">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea rows="4" cols="50" name="description" form="reqform" [(ngModel)]="requirement.description" class="form-control">
+                        Enter Description of Requirement...</textarea>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row form-group" style="padding-top: 30px;"><input class="btn btn-success" type="submit"></div>
+                <div *ngIf="res" class="alert alert-success">
+                    User Requirement Registered Successfull !!!!
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>

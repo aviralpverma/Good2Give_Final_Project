@@ -1,0 +1,37 @@
+.img_org {
+    height: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.org {
+    padding-top: 20px;
+}
+
+.con-org {
+    padding: none;
+}
+
+.col-org {
+    padding-top: 25px;
+}
+
+.btn_detail {
+    width: 200px;
+}
+
+.lbl {
+    font-size: x-large;
+    text-align: center;
+}
+
+.responsive {
+    width: 100%;
+    max-width: 450px;
+    height: 100%;
+    max-height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

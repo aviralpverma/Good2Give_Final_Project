@@ -1,0 +1,22 @@
+.main {
+    padding: none;
+    padding-top: 2%;
+}
+
+.img_org {
+    height: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.col_org_text {
+    padding-top: 40px;
+    padding-left: 60px;
+}
+
+
+/* .img_container {
+  max-height: 600px;
+ 
+} */

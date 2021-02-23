@@ -1,0 +1,104 @@
+<nav class="navbar fixed-top navbar-expand-lg" style="background-color: #04204e;">
+
+    <a class="navbar-brand linkcolor" href="#">Good2Give</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto nav-pills">
+            <li class="nav-item">
+                <a class="nav-link linkcolor" *ngIf="!loginSer.isAdminLoggedIn()" routerLink="/">Home </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a *ngIf="loginSer.hideNav()" class="nav-link dropdown-toggle linkcolor" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Login
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #04204e; ">
+                    <a class="dropdown-item linkcolor" routerLink="/login-user">User</a>
+                    <a class="dropdown-item linkcolor" routerLink="/login-admin">Admin</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a *ngIf="loginSer.hideNav()" class="nav-link dropdown-toggle linkcolor" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Register
+          </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #04204e;">
+                    <a class="dropdown-item linkcolor" routerLink="/register-user">User</a>
+                    <a class="dropdown-item linkcolor" routerLink="/register-admin">Admin</a>
+                </div>
+
+            </li>
+            <li><a *ngIf="loginSer.isUserLoggedIn()" routerLink="/useracc" class="nav-link linkcolor">Myaccount</a></li>
+            <li><a *ngIf="loginSer.isUserLoggedIn()" routerLink="/mydonation" class="nav-link linkcolor">MyDonations</a></li>
+
+
+            <li><a *ngIf="loginSer.isAdminLoggedIn()" routerLink="/admin" class="nav-link linkcolor">OrgnizationDetails</a></li>
+            <li><a *ngIf="loginSer.isAdminLoggedIn()" routerLink="/addreq" class="nav-link linkcolor">Addrequirement</a></li>
+            <li><a *ngIf="loginSer.isAdminLoggedIn()" routerLink="/approved" class="nav-link linkcolor">Requirementlist</a></li>
+            <li><a *ngIf="loginSer.isAdminLoggedIn()" routerLink="/approve_requests" class="nav-link linkcolor">Donation Requests</a></li>
+
+            <li><a *ngIf="loginSer.isUserLoggedIn()" href="#" class="nav-link linkcolor" data-toggle="modal" data-target="#myModal">Logout</a></li>
+            <li><a *ngIf="loginSer.isAdminLoggedIn()" href="#" data-toggle="modal" data-target="#myModal1" class="nav-link linkcolor">Logout</a></li>
+
+
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">LOGOUT</h4>
+                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                Do you want to logout??
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <a data-dismiss="modal" class="btn btn-danger" routerLink="/logout">Logout</a>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+- The Modal -->
+<div class="modal" id="myModal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">LOGOUT</h4>
+                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                Do you want to logout???
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <a data-dismiss="modal" routerLink="/logoutadmin" class="btn btn-danger">Logout</a>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>

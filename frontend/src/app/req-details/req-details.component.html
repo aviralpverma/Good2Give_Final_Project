@@ -1,0 +1,49 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Donate {{oneReq.categoryId['name']}}</h4>
+    </div>
+    <div class="modal-body">
+        <form method="POST">
+            <div class="form-group">
+                <label for="formControlRange">Please enter the amount you can donate</label>
+                <input type="range" name="range" class="form-control-range" id="formControlRange" onInput="$('#rangeval b').html($(this).val())" min="0" [max]="rangeDiff()" value="0" [(ngModel)]="count">
+                <span id="rangeval">Count : <b>0</b></span>
+            </div>
+            <div class="form-group">
+                <h1 style="text-align: center;"><button type="submit" class="btn btn-success" (click)="onSubmit()">Donate</button></h1>
+            </div>
+        </form>
+        <div *ngIf="result" class="alert alert-success">Request submitted succesfully!</div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-info" (click)="modal.close('Save click')">Close</button>
+    </div>
+</ng-template>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-2">
+                <img height="150px" width="150px" src="/assets/images/{{oneReq.categoryId['name']}}.jpg" alt="...">
+            </div>
+            <div class="col-sm-8 req">
+                <h3>Requirement for {{oneReq.categoryId['name']}}</h3>
+                <p>{{oneReq.description}}</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p style="text-align: center;">Donated : {{oneReq.itemCurrentCount}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p style="text-align: center;">Required : {{oneReq.itemMaxCount}}</p>
+                    </div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" [style.width]="calProgress(oneReq.itemCurrentCount, oneReq.itemMaxCount) + '%'"></div>
+                </div>
+            </div>
+            <div class="col-sm-2 btn-donate">
+                <button type="button" class="btn btn-success" (click)="donateModal(content)">Donate</button>
+            </div>
+        </div>
+    </div>
+</div>

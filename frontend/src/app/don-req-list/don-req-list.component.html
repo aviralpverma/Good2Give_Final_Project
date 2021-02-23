@@ -1,0 +1,58 @@
+<!-- <p>{{dlist | json}}</p> -->
+<br>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <h4>Name</h4>
+                    </div>
+                    <div class="col-sm-2">
+                        <h4>Phone</h4>
+                    </div>
+                    <div class="col-sm-2">
+                        <h4>Email</h4>
+                    </div>
+                    <div class="col-sm-2">
+                        <h4>Category</h4>
+                    </div>
+                    <div class="col-sm-2">
+                        <h4>Donation Count</h4>
+                    </div>
+                    <!-- <div class="col-sm-2">
+            <h4><button type="submit" class="btn btn-success">Approve</button></h4>
+          </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col_req" *ngFor="let dq of dlist">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <h4>{{dq.assocUser.name}}</h4>
+                    </div>
+                    <div class="col-sm-2">
+                        <h4>{{dq.assocUser.phoneNo}}</h4>
+                    </div>
+                    <div class="col-sm-2">
+                        <h4>{{dq.assocUser.email}}</h4>
+                    </div>
+                    <div class="col-sm-2">
+                        <h4>{{dq.assocReq.categoryId.name}}</h4>
+                    </div>
+                    <div class="col-sm-2">
+                        <h4>{{dq.itemDonationCount}}</h4>
+                    </div>
+                    <div class="col-sm-2">
+                        <h4><button type="submit" class="btn btn-success" (click)=approve(dq.id)>Approve</button></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

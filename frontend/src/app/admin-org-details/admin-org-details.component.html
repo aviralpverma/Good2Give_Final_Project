@@ -1,0 +1,90 @@
+<br>
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title" style="text-align: center;">Upload</h4>
+        <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form method="POST">
+            <div class="form-group">
+                <label for="inp_file">Select File</label>
+                <input type="file" class="form-control-file" id="inp_file" (change)="onFileChanged($event)">
+            </div>
+            <div class="form-group">
+                <h1 style="text-align: center;"><button type="submit" class="btn btn-success" (click)="onUpload()">Upload</button></h1>
+            </div>
+        </form>
+        <div *ngIf="result" class="alert alert-success">Request submitted succesfully!</div>
+    </div>
+    <!-- <div class="modal-footer">
+       <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+    </div> -->
+</ng-template>
+<div class="card">
+    <div class="card-body">
+
+        <div class="container emp-profile" style="margin-top: 100px;">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <img [src]="imageURL" alt="" />
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="profile-head">
+                        <h5>
+                            {{org.fullname}}
+                        </h5>
+                        <h6>
+                            {{org.description}}
+                        </h6>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-6">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Organisation Id</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{org.id}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Organisation Name</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{org.fullname}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Address</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{org.address}}</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <h3 style="text-align: center;"><button type="submit" class="btn btn-success btn-lg btn_submit" (click)="uploadImageModal(content)">Upload Image</button></h3>
+        </div>
+    </div>
+</div>

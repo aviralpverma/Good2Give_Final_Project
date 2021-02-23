@@ -1,0 +1,119 @@
+<div class="container" style="margin-top: 100px;">
+    <div class="card">
+
+
+        <h2 class="text-center">Donation List
+        </h2>
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <tr class="thead-light">
+                    <th>Creation Date</th>
+                    <th>Description</th>
+                    <th>Required</th>
+                    <th>Fulfilled</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+                <tbody>
+                    <tr *ngFor="let dq of dlist">
+                        <td>
+                            {{dq.creationDate}}
+                        </td>
+                        <td>
+                            {{dq.description}}
+                        </td>
+                        <td>
+                            <div *ngIf="dq.itemMaxCount!=0">
+                                {{dq.itemMaxCount}}
+                            </div>
+                            <div *ngIf="dq.donationMaxAmount!=0">
+                                {{dq.donationMaxAmount}}
+                            </div>
+
+                        </td>
+                        <td>
+                            <div *ngIf="dq.itemMaxCount!=0">
+                                {{dq.itemCurrentCount}}
+                            </div>
+                            <div *ngIf="dq.donationMaxAmount!=0">
+                                {{dq.donationCurrAmount}}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="alert alert-success" *ngIf="dq.donationMaxAmount==dq.donationCurrAmount && dq.itemMaxCount==dq.itemCurrentCount">
+
+                                <h4>Served</h4>
+
+                            </div>
+                            <div class="alert alert-danger" *ngIf="dq.donationMaxAmount!=dq.donationCurrAmount || dq.itemMaxCount!=dq.itemCurrentCount">
+
+                                <h4>Pending</h4>
+
+                            </div>
+                        </td>
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2" (click)=userDetails(dq.id)>
+                Details
+              </button>
+
+                            <!-- The Modal -->
+                            <div class="modal" id="myModal2">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Details of Donour</h4>
+                                        </div>
+
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <h5>Donor Name</h5>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <h5>Quantity/Amt.</h5>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <h5>Date</h5>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <h5>Contact No</h5>
+                                                </div>
+                                            </div>
+                                            <div class="row" *ngFor="let uq of ulist">
+                                                <div class="col-sm-3">
+                                                    <h5>{{uq.assocUser.name}}</h5>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <h5>{{uq.itemDonationCount}}</h5>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <h5>{{uq.timestamp}}</h5>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <h5>{{uq.assocUser.phoneNo}}</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Modal footer -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+
+
+
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,10 @@
+/* html {
+  height: 100%;
+} */
+
+#whole {
+    min-height: 850px;
+    background-image: url('/assets/images/8.jpg');
+    background-size: 100%;
+    background-size: cover;
+}

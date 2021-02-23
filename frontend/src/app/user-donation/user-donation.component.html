@@ -1,0 +1,74 @@
+<div class="container">
+
+    <div class="card" style="margin-top: 100px;">
+        <div class="card-head">
+            <h2 class="text-center">Donation List
+            </h2>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <tr class="thead-light">
+                    <th>Donation Id</th>
+                    <th>CategoryName</th>
+                    <th>Qty Donated</th>
+                    <th>Date</th>
+                    <th>Donation Cente Details</th>
+                </tr>
+                <tbody>
+                    <tr *ngFor="let dlist of donation">
+                        <td>
+                            {{dlist.id}}
+                        </td>
+                        <td>
+                            {{dlist.assocReq.categoryId.name}}
+                        </td>
+                        <td>
+                            {{dlist.itemDonationCount}}
+                        </td>
+                        <td>
+                            {{dlist.timestamp}}
+                        </td>
+
+                        <td><button class="btn btn-secondary" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">View Details</button></td>
+
+                        <div class="modal" id="myModal2">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Donation Center Details</h4>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <div>
+                                            <label><b> Organization Id: </b></label> {{dlist.assocReq.assocOrg.id}}
+                                        </div>
+                                        <div>
+                                            <label><b>Organization Name: </b></label> {{dlist.assocReq.assocOrg.fullname}}
+                                        </div>
+                                        <div>
+                                            <label><b>Adress: </b></label> {{dlist.assocReq.assocOrg.address}}
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+
+</div>
+<!-- The Modal -->
